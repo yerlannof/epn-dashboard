@@ -99,10 +99,11 @@ function render(){
    `<td class="meta">${d.year}<br>${d.author}</td>`+
    `<td><span class="st ${es}">${lbl[es]}</span></td>`+
    `<td>${d.assignee?`<span class="who ${d.assignee}">${d.assignee}</span>`:""}</td><td></td>`;
+  const numCell=tr.children[1];
+  const cn=document.createElement("button");cn.className="cp";cn.style.cssText="margin-left:8px;padding:2px 8px;font-size:12px";cn.textContent="📋";cn.title="копировать №";cn.onclick=(e)=>{e.stopPropagation();copy(d.num,cn);};
+  const mt=numCell.querySelector('.meta');numCell.insertBefore(cn,mt);
   const cell=tr.lastElementChild;
-  const b1=document.createElement("button");b1.className="cp";b1.textContent="№";b1.onclick=()=>copy(d.num,b1);
-  cell.appendChild(b1);
-  if(es==="todo"||es==="paid"){const b2=document.createElement("button");b2.className="cp";b2.textContent="№+назв";b2.style.marginLeft="6px";b2.onclick=()=>copy(d.num+"  "+d.title,b2);cell.appendChild(b2);
+  if(es==="todo"||es==="paid"){const b2=document.createElement("button");b2.className="cp";b2.textContent="№+назв";b2.onclick=()=>copy(d.num+"  "+d.title,b2);cell.appendChild(b2);
    const b3=document.createElement("button");b3.className="cp";b3.style.marginLeft="6px";b3.textContent=noBtn.has(d.num)?"↩ вернуть":"💳 нет кнопки";b3.onclick=()=>toggleNoBtn(d.num);cell.appendChild(b3);}
   tb.appendChild(tr);}
  if(!rows.length)tb.innerHTML='<tr><td colspan="7" style="color:#8b97a4;padding:20px">пусто</td></tr>';
