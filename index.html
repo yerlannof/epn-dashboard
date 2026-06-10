@@ -57,6 +57,7 @@ tr.parsed td{opacity:.5}
  <button class="tab" data-f="Yerlan">👤 Yerlan</button>
  <button class="tab" data-f="Мухтар">👤 Мухтар</button>
  <button class="tab" data-f="all">Все</button>
+ <button class="tab" style="border-color:#2563eb" title="скопирует все твои отметки «нет кнопки» — вставь список в чат Клоду" onclick="(function(b){const t=[...noBtn].join(', ');navigator.clipboard.writeText(t||'(пусто)').then(()=>{b.textContent='✓ '+noBtn.size+' шт в буфере — вставь в чат';setTimeout(()=>b.textContent='📤 экспорт «нет кнопки»',3500);});})(this)">📤 экспорт «нет кнопки»</button>
  <input class="search" placeholder="поиск №/название/автор…">
 </div>
 <table><thead><tr><th></th><th>РГФ №</th><th>Название</th><th>Год/Автор</th><th>Статус</th><th>Кому</th><th></th></tr></thead>
